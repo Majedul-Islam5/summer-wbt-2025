@@ -1,0 +1,53 @@
+body {
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/058/204/867/small/dark-blue-textured-wall-and-floor-background-photo.jpg');
+    background-size: cover;
+    color: rgb(245,245,245);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+section{
+    background-color: rgb(0,0,0,0.5);
+    height: 185px;
+}
+
+#p1{
+    display: inline-block;
+    
+}
+
+a{
+    margin-right: 10px;
+    color: rgb(204,238,255);
+}
+
+a:hover {
+    color: rgb(230,220,170);
+
+}
+
+img{
+    float: left;
+}
+.image{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.intro-box {
+  width: 1450px;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+footer{
+    clear: both;
+    text-align: center;
+}
+
+
+
+
