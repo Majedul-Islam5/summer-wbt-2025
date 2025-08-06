@@ -3,21 +3,44 @@ body {
     background-size: cover;
     color: rgb(245,245,245);
     font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+}
+#ery{
+    color: lightsalmon;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.content {
+    flex: 1;
+}
+
+header{
+    text-align: center;
+}
+
+header a{
+    margin-right: 30px;
+    color: rgb(204,238,255);
+    text-decoration: none;
+
 }
 
 section{
     background-color: rgb(0,0,0,0.5);
     height: 185px;
-}
-
-#p1{
-    display: inline-block;
-    
+    width: 1350px;
+    margin-left: 100px;
 }
 
 a{
     margin-right: 10px;
     color: rgb(204,238,255);
+    text-decoration: none;
 }
 
 a:hover {
@@ -25,16 +48,20 @@ a:hover {
 
 }
 
-img{
-    float: left;
+
+.image:hover{
+    transform:scale(1.2)
 }
+
 .image{
     margin-right: 10px;
     margin-left: 10px;
+    float: left;
+    transition:all 1s
 }
 
 .intro-box {
-  width: 1450px;
+  width: 1300px;
 }
 
 li{
@@ -47,6 +74,8 @@ footer{
     clear: both;
     text-align: center;
 }
+
+
 
 
 

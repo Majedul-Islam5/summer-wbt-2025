@@ -3,39 +3,65 @@ body {
     background-size: cover;
     color: rgb(245,245,245);
     font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.content {
+    flex: 1;
+}
+
+
+header{
+    text-align: center;
+}
+
+header a{
+    margin-right: 30px;
+    color: rgb(204,238,255);
+    text-decoration: none;
+
+}
+hr{
+    color: white;
+}
+
+#ery{
+    color: lightsalmon;
 }
 
 section{
     background-color: rgb(0,0,0,0.5);
-    height: 720px;
-}
-
-#p1{
-    display: inline-block;
     
+    width: 1280px;
+    margin-left: 150px;
 }
 
 a{
     margin-right: 10px;
     color: rgb(204,238,255);
+    text-decoration: none;
 }
 a:hover {
     color: rgb(230,220,170);
 
 }
 
-img{
-    float: left;
-    transition:all 1s
-}
 
-img:hover{
+.image:hover{
     transform:scale(1.2)
 }
 
 .image{
     margin-right: 10px;
     margin-left: 20px;
+    float: left;
+    transition:all 1s
 }
 
 #u2{
