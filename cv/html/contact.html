@@ -19,7 +19,7 @@
         <br><br>
         
         <section><br>
-            <form method="get">
+            <form action="taskContact.html" method="get">
                 <h1>Fill Out the Form to Get in Touch</h1>
 
                 <div class="form_middle">
@@ -39,31 +39,31 @@
 
                 <div class="form_middle">
                 <label>Reason For Contacting</label>
-                <input type="radio" name="reason" required>Project
-                <input type="radio" name="reason">Thesis
-                <input type="radio" name="reason">Meet and Greet<br><br>
+                <input type="radio" name="reason" required value="Project">Project
+                <input type="radio" name="reason" value="Thesis">Thesis
+                <input type="radio" name="reason" value="Meet & Greet">Meet and Greet<br><br>
                 </div>
 
                 <div class="form_middle">
                     <label>Select the services you need</label>
                     <div>
-                    <input type="checkbox" name="app" required>Mobile Application Development<br>
-                    <input type="checkbox" name="web">Web Application Development<br>
-                    <input type="checkbox" name="graphics">OpenGL or Graphics Programming<br><br>
+                    <input type="checkbox" name="service" value="Mobile Application Development" required>Mobile Application Development<br>
+                    <input type="checkbox" name="service" value="Web Application Development">Web Application Development<br>
+                    <input type="checkbox" name="service" value="OpenGL or Graphics Programming">OpenGL or Graphics Programming<br><br>
                     </div>
                 </div>
 
                 <div class="form_middle">
                 <label>Hire me<br></label>
-                <input type="radio" name="hire">Yes
-                <input type="radio" name="hire">No<br><br>
+                <input type="radio" name="hire" value="Yes">Yes
+                <input type="radio" name="hire" value="No">No<br><br>
                 </div>
 
                 <div class="form_middle">
                 <label>Your Position in Your Company<br></label>
-                <input type="radio" name="pos">CEO
-                <input type="radio" name="pos">HR
-                <input type="radio" name="pos">Person of Interest<br><br>
+                <input type="radio" name="pos" value="CEO">CEO
+                <input type="radio" name="pos" value="HR">HR
+                <input type="radio" name="pos" value="Person of Interest">Person of Interest<br><br>
                 </div>
 
                 <input type="submit" value="Submit" class="sub">
