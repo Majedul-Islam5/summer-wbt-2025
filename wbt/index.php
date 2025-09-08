@@ -1,3 +1,125 @@
+<?php
+$fname=$lname=$address=$city=$state=$code=$country=$email=$amount=$mobile="";
+$fnameErr=$lnameErr=$addressErr=$cityErr=$stateErr=$codeErr=$countryErr=$emailErr=$amountErr=$mobileErr="";
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+    if (!empty($_POST["mobile"]))
+    {
+        $mobile=$_POST["mobile"];
+
+        if(!preg_match('/[0-9]/',$mobile ))
+        {
+            $mobileErr = "Mobile Number must be a digit";
+            
+        }else {
+                $mobile = test_input($_POST["mobile"]);
+            }
+    }
+
+    if (!empty($_POST["code"]))
+    {
+        $code=$_POST["code"];
+
+        if(!preg_match('/[0-9]/',$code ))
+        {
+            $codeErr = "Zip code must be a digit";
+            
+        }else {
+                $code = test_input($_POST["code"]);
+            }
+    }
+
+    if (empty($_POST["fname"])) {
+    $fnameErr = " First Name is required";
+  }
+  elseif(strlen($_POST["fname"])<3){
+    $fname = test_input($_POST["fname"]);
+    $fnameErr = " Name is less than 3";
+  }
+  
+  else {
+    $fname = test_input($_POST["fname"]);
+  }
+
+  if (empty($_POST["lname"])) {
+    $lnameErr = " Last Name is required";
+  } else {
+    $lname = test_input($_POST["lname"]);
+  }
+
+  if (empty($_POST["address"])) {
+    $addressErr = " Address is required";
+  } else {
+    $address = test_input($_POST["address"]);
+  }
+
+  if (empty($_POST["city"])) {
+    $cityErr = " City Name is required";
+  } else {
+    $city = test_input($_POST["city"]);
+  }
+
+  if (empty($_POST["state"])) {
+    $stateErr = " state Name is required";
+  } else {
+    $state = test_input($_POST["state"]);
+  }
+
+  if (empty($_POST["code"])) {
+    $codeErr = " code Name is required";
+  } else {
+    $code = test_input($_POST["code"]);
+  }
+
+  if (empty($_POST["country"])) {
+    $countryErr = " country Name is required";
+  } else {
+    $country = test_input($_POST["country"]);
+  }
+
+  if (empty($_POST["country"])) {
+    $countryErr = " country Name is required";
+  } else {
+    $country = test_input($_POST["country"]);
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = " Email is required";
+  }
+  elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+    {   
+        $email = test_input($_POST["email"]);
+        $emailErr = "Enter a valid email address";
+    }
+  else {
+    $email = test_input($_POST["email"]);
+  }
+
+  if (empty($_POST["amount"])) {
+    $amountErr = " amount is required";
+  } else {
+    $amount = test_input($_POST["amount"]);
+  }
+
+
+}
+
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,15 +139,17 @@
     </header>
     
     <section>
-        <form method="get">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
             <div class="form_middle">
                 <label for="fname"><strong>First Name</strong><label for="star" id="red">*</label></label>
-                <input type="text" id="fname" required>
+                <input type="text" id="fname" name="fname" value="<?php echo $fname;?>">
+                <span style="color:red;"><?php echo $fnameErr;?></span>
             </div>
 
             <div class="form_middle">
                 <label for="lname"><strong>Last Name</strong><label for="star" id="red">*</label></label>
-                <input type="text" id="lname" required>
+                <input type="text" id="lname" name="lname" value="<?php echo $lname;?>">
+                <span style="color:red;"><?php echo $lnameErr;?></span>
             </div>
 
             <div class="form_middle">
@@ -35,7 +159,8 @@
 
             <div class="form_middle">
                 <label for="add1"><strong>Address 1</strong><label for="star" id="red">*</label></label>
-                <input type="text" id="add1" required>
+                <input type="text" id="add1" name="address" value="<?php echo $address;?>">
+                <span style="color:red;"><?php echo $addressErr;?></span>
             </div>
 
             <div class="form_middle">
@@ -45,37 +170,42 @@
 
             <div class="form_middle">
                 <label for="city"><strong>City</strong><label for="star" id="red">*</label></label>
-                <input type="text" id="city" required>
+                <input type="text" id="city" name="city" value="<?php echo $city;?>">
+                <span style="color:red;"><?php echo $cityErr;?></span>
             </div>
 
             <div class="form_middle">
                 <label for="state"><strong>State</strong><label for="star" id="red">*</label></label>
-                <select name="state" id="state" required>
+                <select name="state" id="state" name="state" value="<?php echo $state;?>">
                     <option value="">Select a State</option>
                     <option value="North">North</option>
                     <option value="East">East</option>
                     <option value="South">South</option>
                 </select>
+                <span style="color:red;"><?php echo $stateErr;?></span>
             </div>
 
             <div class="form_middle">
                 <label for="zip"><strong>Zip Code</strong><label for="star" id="red">*</label></label>
-                <input type="text" id="zip" required>
+                <input type="text" id="zip" name="code" value="<?php echo $code;?>">
+                <span style="color:red;"><?php echo $codeErr;?></span>
             </div>
 
             <div class="form_middle">
                 <label for="country"><strong>Country</strong><label for="star" id="red">*</label></label>
-                <select name="country" id="country" required>
+                <select name="country" id="country" name="country" value="<?php echo $country;?>">
                     <option value="">Select a Country</option>
                     <option value="Bangladesh">Bangladesh</option>
                     <option value="New Zealand">New Zealand</option>
                     <option value="Malaysia">South</option>
                 </select>
+                <span style="color:red;"><?php echo $countryErr;?></span>
             </div>
 
             <div class="form_middle">
-                <label for="phone"><strong>Phone</strong></label>
-                <input type="number" id="phone" >
+                <label for="mobile"><strong>Phone</strong></label>
+                <input type="text" id="mobile" name="mobile" value="<?php echo $mobile;?>">
+                <span style="color:red;"><?php echo $mobileErr;?></span>
             </div>
 
             <div class="form_middle">
@@ -85,17 +215,19 @@
 
             <div class="form_middle">
                 <label for="email"><strong>Email</strong><label for="star" id="red">*</label></label>
-                <input type="email" id="email" required>
+                <input type="email" id="email" name="email" value="<?php echo $email;?>">
+                <span style="color:red;"><?php echo $emailErr;?></span>
             </div>
 
             <div class="form_middle" style="margin-bottom: 0px;">
                 <label for="donation"><strong>Donation Amount</strong><label for="star" id="red">*</label></label>
-                <input type="radio" name="donation" required>None
-                <input type="radio" name="donation">$50
-                <input type="radio" name="donation">$75
-                <input type="radio" name="donation">$100
-                <input type="radio" name="donation">$250
-                <input type="radio" name="donation">Other
+                <input type="radio" name="amount" value="<?php echo $amount;?>">None
+                <input type="radio" name="amount" value="<?php echo $amount;?>">$50
+                <input type="radio" name="amount" value="<?php echo $amount;?>">$75
+                <input type="radio" name="amount" value="<?php echo $amount;?>">$100
+                <input type="radio" name="amount" value="<?php echo $amount;?>">$250
+                <input type="radio" name="amount" value="<?php echo $amount;?>">Other
+                <span style="color:red;"><?php echo $amountErr;?></span>
             </div>
 
             <div class="small">
@@ -218,7 +350,7 @@
             <input type="text" style="width: 700px;"><br><br>
             <div style="margin-left: 250px;">
                 <input type="submit" value="Reset" style="margin-right: 15px;">
-                <input type="submit" value="Continue">
+                <input type="submit" value="Submit">
             </div>
 
             <br>
